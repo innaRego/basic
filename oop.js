@@ -35,8 +35,45 @@ class Animal {
     genericAnimal.displayInfo();
     myDog.displayInfo();
     myDog.speak();
-    
-       
+
+
+    //Инкапсуляция (Encapsulation)
+    //инкапсуляция  - скрытие внутренней реализации от внешнего мира
+    //encapsulation - hiding internal implementation
+    //или же - объединение данных и методов
+    //и работы с этими данными в одном классе
+
+    console.log(`---- Инкапсуляция----`);
+
+    class BankAccount {
+        //# - означает, что свойство приватное
+        //private property
+
+        
+    #balance =0; //приватное свойство
+    //private property
+    constructor(initialBalance) { 
+        if(initialBalance > 0) { 
+            this.#balance = initialBalance;
+        }    
+     }
+       //публичный метод для внесения денег
+       //public method for depositing money
+       deposit(amount) { 
+        if(amount > 0) { 
+            this.#balance += amount;
+            console.log(`Внесено: ${amount}. Новый баланс: ${this.#balance}`);
+        }
+    }
+       //публичный метод для внесения денег
+       //public method for withdrawing money
+       withdraw(amount) { 
+        if(amount > 0 && amount <= this.#balance) { 
+            this.#balance -= amount;
+            console.log(`Снято: ${amount}. Новый баланс: ${this.#balance}`);
+        } else { 
+            console.log(`Недостаточно средств или неверная сумма.`);
+        }
 
             
 
